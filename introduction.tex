@@ -1,0 +1,191 @@
+\chapter{Introduction}
+\label{chp:introduction}
+Last years, regard to the great advances made in technology and their
+influence on society, have been generated new trends and innovations in
+surveillance systems. Such is the case of video security cameras on public
+(parks, underground stations, airports), private (gambling houses, hotels,
+banks), and restricted places (high reactive chemical labs, electrical
+installations, radiation areas); that, with the target of maintaining a record
+of events they were changing and improving over time. Currently, one can
+have full access to high definition, infrared vision, and even biometric
+identification systems. All aiming to address automation under government
+regulations to protect and guarantee people's security and privacy.
+
+In January 2012, a CCTV (Closed Circuit Television) captured the moment when a
+woman is rescued after falling on to the tracks in an underground station in
+Madrid. September 8th, also in 2012, a drunk man falls of an underground
+platform, then gets robbed and hit by the train.
+(Figure~\ref{fig:chp-intr:underground-sweden}) Hopefully, there were no further
+consequences. Should be said that these kind of events does not always occur on
+stations. For instance, accidents in motorways and main roads can be found
+around the world. (see Figure~\ref{fig:chp-intr:car-accidents}) 
+
+Note that, in last paragraph, the word \textit{event} was used to reference a
+given situation described under a period of time on a geographical place.
+Furthermore, is feasible the fact of classification events into
+\textit{normal} and \textit{abnormal}, remaining to abnormal events be those
+which have a very low likelihood of occurrence (a more detailed definition
+of normal and abnormal events will be discussed in
+Section~\ref{chp:related-work,sec:terms}). In this respect, people falling and
+car crashing represent abnormal events.
+
+These exposed cases, underground stations and car accidents in road ways, were
+events were recorded by a video security camera. Although no information about
+the presence of an automatic event detection system was found, those videos are
+likely to be used only forensically. The addition of analytics can be able
+to alert security personnel of possible or potential situations where people's
+safety is on risk.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=5cm,height=3cm]
+ {/Introduction/underground-station-a-1-s.png}
+ \includegraphics[width=5cm,height=3cm]
+ {/Introduction/underground-station-a-2-s.png}
+ \includegraphics[width=5cm,height=3cm]
+ {/Introduction/underground-station-a-3-s.png}
+ \includegraphics[width=5cm,height=3cm]
+ {/Introduction/underground-station-a-5-s.png}
+ \includegraphics[width=5cm,
+height=3cm]{/Introduction/underground-station-a-6-s.png}
+ \includegraphics[width=5cm,
+height=3cm]{/Introduction/underground-station-a-7-s.png}
+ \includegraphics[width=5cm,
+height=3cm]{/Introduction/underground-station-a-8-s.png}
+ \includegraphics[width=5cm,
+height=3cm]{/Introduction/underground-station-a-9-s.png}
+ \includegraphics[width=5cm,
+height=3cm]{/Introduction/underground-station-a-10-s.png}
+ %\includegraphics[width=8cm]{/Introduction/underground-station-a-11.png}
+ \caption{A video sequence (from left to right, top to bottom) showing a man who
+fell, was robbed, and hit by the train. Blue and red colors highlight the main
+actor (drunk 	man) and the robber, while the train is indicated by green.}
+ \label{fig:chp-intr:underground-sweden}
+\end{figure}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-a-1_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-a-2_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-a-3_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-a-4_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-b-1_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-b-2_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-b-3_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-b-4_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-d-1_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-d-2_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-d-3_s.png}
+ \includegraphics[width=4cm]{/Introduction/Small/car-accident-d-4_s.png}
+ \caption{Three car accidents in different circumstances recorded by CCTV
+cameras. Sequences go from left to right.}
+ \label{fig:chp-intr:car-accidents}
+\end{figure}
+
+\clearpage
+
+\section{Problem Description}
+In large CCTV installations, with some hundreds of cameras, only a small
+fraction are ever watched. \cite{Dee:2007:HowClose} Surveillance systems have
+been gained more emphasis in the world, especially since critical events, such
+as terrorism attacks. The use of technology had improved, but improving hardware
+is not the only alternative to face these issues. In United Kingdom, some
+researchers showed that CCTV schemes in cities, town centers, and public housing
+measured big ranges of crime types and only a small part of them where
+studied, concluding that these schemes does not have a significant effect on
+crime. \cite{Farrington:2007:EffectsCCTV,
+Farrington:2008:EffectsCCTV} 
+
+Eventually, one of the biggest problems is the fact to use human operators to
+monitor surveillance cameras. Look at screens some hours, almost continuously,
+is a difficult task which may have health impacts or even, create
+controversy. Dee \etal \cite{Dee:2007:HowClose} collected reports to show that
+the ratio between the operator and the number of CCTV cameras that has to watch
+lies along $1:4$,$1:16$, $1:30$, and $1:78$. Inclusively, in some
+installations, every camera needs to be watched at least once a day, but just a
+few are monitored in real time. Whilst, Wallace \etal
+\cite{Wallace:1998:CCTV} recommended that human operators may monitor no more
+than $16$ cameras effectively in 30 minutes and, for health reasons, a break is
+required every hour. Nowadays, display screen equipment is now a part for many
+members of security staff, and those who regularly work for long periods on such
+equipment may potentially suffer from a range of problems including, but not
+limited to, eyestrain, musculo-skeletal problems, or stress.
+\cite{HMPrison:2000:DisplayScreen} And considering social issues, operatives
+frequently decide which cameras to monitor based on the appearance rather than
+the behavior itself \cite{McCahill:2003:CCTV}. Therefore, exists a notion to
+show that computational process to save community's security using devices,
+already putting in work, is still in progress.
+
+\section{Motivation}
+In 1990s, the interest to use surveillance images in problems to help
+computer assistance has gained importance. \cite{Rosin:1991:ImageInterpretation}
+Good examples were projects like CROMATICA
+\footnote{\url{
+http://cordis.europa.eu/telematics/tap_transport/research/projects/cromatica.htm
+l}}, PRISMATICA\footnote{\url{
+http://www.transport-research.info/web/projects/project_details.cfm?ID=13699}},
+and ADVISOR \footnote{\url{
+http://www-sop.inria.fr/orion/ADVISOR/}} founded by the European Union to
+monitor people in public environments.
+
+Modeling the lack of the process to analyze surveillance videos as a
+problem where the monitor needs to watch for uncommon occurrences, is the
+same to identify abnormal events in surveillance systems. Although, for crime
+prevention is not a direct application, it would help to prevent future events
+to preserve security, or even more, to learn new patterns according to the
+objects' behavior which are observed.
+
+During all this time, many strategies to solve this problem have been
+recognized, each one differing on features to take in consideration.
+For instance, those which deals at a high-level and low-level processing.
+\cite{Dee:2007:HowClose} High-level involves a understanding and integrates each
+part within the scene, such as trajectory analysis, where a moving object is
+considered to be an amorphous blob that is tracked. Even tough, tracking gives
+an useful behavior (and/or contextual) model, computationally it is only
+suitable for scenes with few objects (e.g. traffic monitoring
+\cite{Kamijo:2000:TrafficMonitoring}), but impractical in crowded or complex
+scenarios. Low-level processing extracts features (some of which are motion and
+texture) to analyze the activity pattern of each pixel. Because this activity
+cannot be used for a behavioral understanding, its applicability is reduced to
+detection of local-temporal phenomena.
+
+Although, as could be seen in \sct{chp:related-work}, low-level processing is
+feasible to work in real time and adaptively, detection of anomal events is
+a developing area which requires more attention to discover new approaches or
+improve those already used. Humans are not good to detect anomalies, but
+machines can help to improve this fact.
+
+\section{Objectives and Contributions}
+ \subsection{General Objective}
+ This work aims to present an approach to automatically detect abnormal events
+in surveillance videos exploring low-level features to exploit contextual
+information adding a feedback process. The main goal is to look into new
+frontiers in such a way that it improves the pixel-level \footnote{
+Currently, an abnormal event is recognized at two levels. 1) Frame-level points
+out what frames contain abnormal events, and 2) pixel-level shows pixels
+that belong to an anomaly.} accuracy criterion.
+\subsection{Specific Objectives}
+ \begin{itemize}
+  \item Explore spatio-temporal features, as well as, statistical frameworks to
+describe the behavior model.
+  \item Extract and learn, continuously, contextual information from incoming
+stream of video sequences.
+  \item Detect abnormal events in video surveillance sequences.
+  \item Use statistical inference to determine whether or not an anomaly has
+been occurred in a pixel-level manner.
+	\item Update the model incrementally.
+	\item Test, compare, and analyze results.
+ \end{itemize}
+
+ \subsection{Contributions}
+ Unlike other works, a semi-supervised method will be explored into the update
+process in order to improve the accuracy stated in the literature. If
+successful, it will be a great contribution to the state-of-the-art. 
+
+\section{Outline}
+Chapter~\ref{chp:related-work} discuss the state-of-the-art as well as terms
+and definitions, whilst Chapter~\ref{chp:methodology} 
+describes the proposed approach in a general way. Chapter~\ref{chp:schedule}
+presents the schedule with principal activities to be developed to get the
+expected results, and finally, conclusions are shown in
+Chapter~\ref{chp:conclusions}.
