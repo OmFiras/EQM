@@ -1,0 +1,77 @@
+\documentclass[letterpaper,12pt]{report}
+
+\usepackage{graphicx}
+\usepackage{ic-tese}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{subfigure}
+\usepackage{url}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage{setspace}
+\usepackage{geometry}
+\geometry{top=2.3cm,bottom=2.2cm,left=2.5cm,right=2.5cm}
+
+\graphicspath{{./figs}}
+
+%Other packs
+%\usepackage{xcolor}
+\usepackage{subfig}
+%\usepackage{chronology}
+%Deffines
+\newcommand{\etal}{et al.}
+\newcommand{\fig}[1]{Figure~\ref{#1}}
+\newcommand{\chp}[1]{Chapter~\ref{#1}}
+\newcommand{\sct}[1]{Section~\ref{#1}}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center} {\large \bf STATE UNIVERSITY OF CAMPINAS} \end{center}
+\begin{center} {\large  INSTITUTE OF COMPUTING} \end{center}
+\vspace{1.0cm}
+\begin{center} {\large \textbf{EQM}} \end{center}
+\begin{center} {\today} \end{center}
+
+\vspace{3.5cm}
+
+\begin{center} {\large {\textsc{{Abnormal Event Detection in Surveillance
+Videos}}}}
+
+\vspace{2.0cm}
+
+{\textbf{Student}: Berthin S. Torres Callañaupa \\[0.2cm]
+ \textbf{Advisor}: Prof. Dr. Hélio Pedrini
+}
+\end{center}
+
+\clearpage
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+\input abstract
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input introduction
+\input related-work
+\input methodology
+%\include{prelimynary-results}
+\input schedule
+\input conclusions
+
+% ---------------------------------------------------------------------------- %
+% Bibliography               % to rename the label 'bibliography', modify line 452 in ic-tese.sty
+\bibliographystyle{plain}
+\bibliography{bibliography}  % related to file: 'bibliography.bib'
+
+\end{document}
