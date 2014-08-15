@@ -1,0 +1,603 @@
+\chapter{Related work}
+\label{chp:related-work}
+
+%\section{Introduction}
+
+Along last years, scientific community has focused on the development and
+improvement of new approaches and techniques in many areas. This is reflected in
+the evolution of proposals for the anomaly detection problem in videos.
+
+% This chapter discusses some related works which represent the
+% current state-of-the-art. Section~\ref{chp:related-work,sec:terms} shows terms
+% and definitions that facilitate a better understanding of exposed approaches in
+% Section~\ref{chp:related-work,sec:literature-review}. It has been deemed
+% appropriate to present a brief outline of each approach and then comparing each
+% other.
+
+\section{Terms and Definitions}
+\label{chp:related-work,sec:terms}
+%\subsection{Terminology}
+\subsection{Abnormal Event}
+
+Whilst, events are atomic low-level spatio-temporal entities
+\cite{Candamo:2010:UnderstandingTransicScenes} which express (1) the action
+being performed, (2) the actor who performs the action
+\cite{Suriani:2013:SuddenEventSurvey}; anomalies or anomalies, as
+described in Ref.~\cite{Chandola:2009:AnomalySurvey} are observations that do
+not conform to a well-defined notion of normal behavior. In contrast, abnormal
+or anomal events \footnote{Although some efforts were found to differentiate
+among these terms. In this work, an abnormal event, will be assumed to be
+similar to unusual, rare, suspicious, anomal, irregular, outlying, or
+atypical.}
+are events that deviates from normal occurrences both, spatially and
+temporally.
+
+% An event is the result of some activities
+% \cite{Nagel:1988:ImageConceptualDescription}. More technically speaking,
+% events are atomic low-level spatio-temporal entities
+% \cite{Candamo:2010:UnderstandingTransicScenes} which express (1) the action
+% being performed, (2) the actor who performs the action
+% \cite{Suriani:2013:SuddenEventSurvey}. Whilst, anomalies or anomalies, as
+% described in Ref.~\cite{Chandola:2009:AnomalySurvey} are observations that do
+% not conform to a well-defined notion of normal behavior. In contrast, abnormal
+% or anomal events \footnote{Although some efforts were found to differentiate
+% among these terms. In this work, an abnormal event, will be assumed to be
+% similar to unusual, rare, suspicious, anomal, irregular, outlying, or atypical.}
+% are events that deviates from normal occurrences both, spatially and
+% temporally.
+%-------------
+% 
+% In 1980, Nagel \cite{Nagel:1988:ImageConceptualDescription} defined
+% events as results of some activities, and activities as expressions being
+% described by verbs. Long time after, in 2010, Candamo \textit{et al}
+% \cite{Candamo:2010:UnderstandingTransicScenes} gave a better explanation in
+% which events are atomic low-level spatio-temporal entities. And last, in 2013,
+% Suriani \etal \cite{Suriani:2013:SuddenEventSurvey} summarizes event
+% definitions as a way to express (1) the action being performed, (2) the actor
+% who performs the action, and (3) the goal of the action.
+% 
+% Abnormalies, or anomalies as described in
+% Ref.~\cite{Chandola:2009:AnomalySurvey}, are
+% observations that do not conform to a well-defined notion of normal behavior.
+% Although some efforts were found to differenciate among these terms. In this
+% work, an abnormal event, will be assumed to be similar to unusual, rare,
+% suspicious, anomal, irregular, outlying, or atipical.
+% 
+% In contrast, an anomaly is an abnormal behavior.
+
+% Thus, they are events that deviates from normal occurrences.\
+
+% Anomalies, as described in Ref.~\cite{Chandola:2009:AnomalySurvey}, are
+% observations that do not conform to a well-defined notion of normal behavior.
+% In contrast, an anomaly is an abnormal behavior.
+
+% Duque~\etal~\cite{Duque:2007:PredictionAbnormal}
+% Let consider a set of random observations $x = (x_v)_{v \in S}$,
+% where $S$ represents a data set (e.g. video sequence), and suppose that $x$
+% comes from a normal behavior. Statistically, if $x$ is distruted over a PDF
+% (Probability Density Function) $g(\cdot)$, null hypothesis $H_0$ will be
+% defined as:
+% 
+% \begin{equation}
+%  H_0 : x \overset{dist}{\sim} g(\cdot)
+% \end{equation}
+
+%\subsection{Event}
+
+% \subsection{Abnormal Event}
+% Although some efforts are found to differenciate among these terms
+% (Duque~\etal~\cite{Duque:2007:PredictionAbnormal} defines events as abnormal,
+% normal, and unusual; \textbf{ poner mas referencias}). In this work, an abnormal
+% event, will be assumed to be similar to unusual, rare, suspicious, anomalies,
+% irregular, outlying, atipical. Thus, they are events that deviates from normal
+% occurrences.
+
+\subsection{Spatial and Temporal Abnormalies}
+Suppose a normalcy model is given to describe the behavior in an scene.
+Temporal normalcy is related to how normal events are recurrent over time, and
+the normal behavior model is learnt while times passes. 
+
+On the other hand, spatial normalcy relates events within a group (e.g. a
+crowd).\cite{Li:2014:AnomalyDetection} 
+Consider a road where the usual event is to see people walking from west to
+east, and viceversa (\fig{fig:spatial-anomaly}). Suddenly, a car appears
+(right-most image). The car itself cannot be considered as an anomaly, but
+within the crowd, it is. Detection of such anomalies are mostly based on
+spatial
+context.
+
+\begin{figure}
+ \includegraphics[width=4cm]{/Related-work/Scene-1/0.png}
+ \includegraphics[width=4cm]{/Related-work/Scene-1/2.png}
+ \includegraphics[width=4cm]{/Related-work/Scene-1/4.png}
+ \includegraphics[width=4cm]{/Related-work/Scene-1/5.png}
+ \caption{Samples from UCSD Ped2 Data set. Three left-most frames are scenes
+with normal events, last frame contains an abnormal event (the car).}
+ \label{fig:spatial-anomaly}
+\end{figure}
+
+\subsection{Contextual Information}
+Contextual information is a set of information in which its members can be
+partitioned into two groups. Independent and dependent variables. Independent
+variables constitute information whose meaning is not influenced by other
+information, and dependent variables represents information whose meaning
+is influenced by independent variables. \cite{Wiliem:2012:SuspiciousBehavior}
+
+In psychology, this concept is related to visual perception. When humans
+look at a group of objects, we perceive their entirety before individual
+aspects. We see the whole as more than the sum of the parts, and even when parts
+are entirely separate entities, we will look to group them as a some whole (Kurt
+Koffka, 1935) 
+\begin{quotation} When parts are identified individually have
+different characteristics to the whole (Gestalt means "organized whole") e.g.
+describing a tree - it's parts are trunk, branches, leaves, perhaps blossoms or
+fruit. But when you look at an entire tree, you are not conscious of the parts,
+you are aware of the overall object - the tree.
+Parts are of secondary importance even though they can be clearly seen.
+\par \raggedleft--- Gestalt
+\end{quotation}
+
+Gestalt theorists were the first group of psychologists to study
+perceptual organization. Their study concluded in six principles illustrated in
+\fig{fig:gestalt}. \cite{Koffka:1935:Gestalt}
+
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=15cm]{/Related-work/gestalt.png}
+ \caption{Gestalt principles. Closure, proximity, continuation,
+similarity, and figure and ground.}
+%Source: \url{
+%http://aaronwoodwardsblog.weebly.com/visual-literacy/gestalt-theory}
+ \label{fig:gestalt}
+\end{figure}
+
+
+% \begin{figure}[!h]
+%  \centering
+%  \subfloat[]{\fbox{\includegraphics[width=5cm,
+% height=3cm]{/Related-work/drawing-THE.eps}
+%   \label{fig:contextual-information.a}}} {~~~}
+%  \subfloat[]{\fbox{\includegraphics[width=5cm,
+% height=3cm]{/Related-work/drawing-CAT.eps}
+% 	\label{fig:contextual-information.b}}}
+%  \caption{Perception}
+%  \label{fig:contextual-information}
+% \end{figure}
+
+\subsection{Motion}
+
+Understanding what is behind an scene is a difficult task. Even for humans, it
+involves sensorial organs and brain activities. The first notion to understand
+the scene comes from motion which is originated by small changes.
+\cite{Pazo-Alvarez:2004:MotionInHumanBrain} Suppose we have a video
+sequence, and we want to analyze it using motion. Therefore, we need to estimate
+motion, and one basic operation to do that is called Optical Flow.
+% Motion estimation is a widely topic
+% to solve object tracking, correct camera jitter, 3D shape reconstruction,
+% navigation, and so on.
+\subsubsection{Optical Flow}
+Given two images, $H=I(t)$ and $G=I(t+\Delta t)$, extracted from a video
+sequence at time $t$ and $t+\Delta t$ respectively, $\Delta t > 0$. The optical
+flow is the displacement vector that indicates, for every pixel in $G$, how
+much that pixel has moved compared to previous image $H$. 
+
+Assuming that brightness difference along pixels in both images are almost
+constant (because $\Delta t$ is usually small), $H$ can be modeled as: $H(x,y) =
+G(x+u, y+v)$ where, components $u,v$ are the optical flow. Horn and Schunck's
+approach \cite{Horn:1981:OpticalFlow} assumes brightness constancy and similar
+behavior in neighboring pixels. Lucas and Kanade \cite{Lucas:1981:OpticalFlow},
+in addition, also considers gaussian pyramids to deal with motion at different
+scales.
+\subsection{Texture}
+Texture is a characteristic of object's appearance in natural scenes, and a
+powerful cue in visual perception.\cite{Zhu:1998:FRAME}  Basically, texture
+consists of organized patterns. Patterns that are useful to obtain information
+about the shape of a surface in space.\cite{Forsyth:2002:ComputerVision}
+% about the shape of a surface in space from the appearance of the texture on that
+% surface. \cite{Forsyth:2002:ComputerVision} 
+
+Texture analysis approaches can be categorized into structural,
+statistical and transformational methods. Structural represents texture by
+well-defined primitives and a hierarchy of spatial arrangements. Statistical
+do not attempt to understand the structure of the texture. Instead, it is
+focused on how patterns lie with respect to another. And, transformation methods
+represent an image in a space whose co-ordinate system has a closed
+interpretation to the characteristics of the texture. Fourier, gabor, and
+wavelet transforms are very common examples of this category.
+\cite{Materka:1998:Texture}
+%\subsubsection{Dynamic Textures}
+\subsection{Probabilistic Topic Models}
+While more and more electronic archives are available online, reading and
+studying them to provide a kind of browsing experience is far enough to be
+realistic fact using only humans. Probabilistic topic models are able to
+discover and annotate large archives of documents with thematic information.
+
+These sort of algorithms are statistical methods that analyze words of original
+texts to find out (1) themes that are behind them, (2) their connectivity, and
+(3) how they change over time. \cite{Blei:2012:TopicModels}
+\subsubsection{Latent Dirichlet Allocation}
+Latent Dirichlet Allocation (LDA) allows us to discover connected topics and
+trends within topics. A topic is defined to be a distribution over a fixed
+vocabulary of terms. \cite{Srivastava:2009:TextMining}. Documents are
+represented as random mixtures over latent topics, where each topic is
+characterized by a distribution over words. \cite{Blei:2003:LDA}
+\subsubsection{Visual Words and Codebooks}
+Visual words are base elements to describe an image. Words are comparable in
+the sense that can be grouped them up (clustered) to form codebooks.
+\subsubsection{Bag of Visual Words}
+Bag of Words provides a mechanism to represent documents for text
+classification and retrieval. Using visual words, this approach can be
+applied successfully in the same way to image processing. 
+
+The normal method relies on three steps. The first step are designed to obtain
+image features. Some popular techniques are dense sampling, dense interest
+points \cite{Tuytelaars:2010:DenseInterestPoints}, Scale-Invariant Feature
+Transform (SIFT)\cite{Lowe:1999:SIFT}, Speeded Up Robust Features
+\cite{Bay:2006:SURF}, and random sampling
+\cite{Nowak:2006:SamplingForBagOfFeatures}. Next, features are clustered
+(usually done with k-means or another kind of clustering technique or even a
+statistical approach) and centroids will form visual words. Finally, each image
+is described by a histogram of codewords. Future processes involve these
+histograms as descriptors for generative or discriminative models.
+\cite{Ulusoy:2005:Generative}.
+
+
+%\section{Abnormal Event Description}
+
+%\section{Topic Model}
+% \section{Datasets}
+% \section{Methods for Abnormal Event Recognition}
+% 
+% 
+% We can categorize works based on how features are used. Low-level and high-level
+% approaches.
+% 
+% \section{Classification}
+% 
+% Similar to the above classification, works can be distinguished on whether 
+% they use a training set to learn a set of parameters or not. 
+% 
+% \subsection{Supervised and Unsupervised}
+% Supervised approaches, on their basis, construct a dictionary of anomalies (or a
+% set of hyphothesis) in order to reduce the problem of detection to a problem of
+% classification. Once a new clip is given, if it is possible to describe
+% (classify) the clip using the set of hyphothesis obtained from the training
+% phase, we shall know if it fits into the normal or abnormal class. Conversely,
+% unsupervised approaches try to learn how the behavior evolves over time because
+% one of the main drawbacks that supervised approaches have to deal with is the
+% fewer number of instances of abnormal events in the data againts all possible
+% abnormalities which could happen. Inclusively, unsupervised approaches assume
+% that over an initial period of time (usually called as initialization), all
+% events are normal, no matter if abnormalities are happening.
+% 
+% Even with these limitations, supervised approaches are successfully
+% used in cases where normal events can be specified beforehand. For instance,
+% people carrying suitcases and detecting abandoned objects are some applications
+% solved by using a specific set of training samples, but in more realistic
+% scenarios, they are unfeasible.
+% 
+% \subsection{Low-level and High-level processing}
+% Low-level approaches extract features such as motion and texture with the goal
+% of analyzing the activiy pattern of each pixel. Since a behavioral understanding
+% cannot be applied in this level, the applicability is restricted to recognition
+% of local-temporal phenomenas. Whilst, high-level approaches use more sophiscated
+% features to model, describe, and determine the normal (abnormal) behavior. In
+% general, objects in scenes are identified and classified with rule-based
+% techniques. Although this level is suitable to work with few objects (deal to
+% the amount of computation), in crowded or complex scenes these approaches are
+% almost impractical.
+% 
+% \subsection{Rule-based and Statistical models}
+% Uncommon behavior in context of network-based classify intrusion detection
+% systems in two model. Misuse detection model and anomaly detection model.
+% Misuse model are those which set new observations as abnormals when they do
+% not match created profiles. Anomaly detection models create normal and abnormal
+% behavior models which are used to classify new inputs throught a LRT
+% (Likelihood Ratio Test). In CV, rule-based models are instead of misuse
+% detection model.
+% 
+% \subsection{Tracking and non-Tracking}
+% Usually, tracking approaches are a combination of supervised and high-level
+% methods that learn motion paths to predict future trajectories and decide if
+% present instances are anomalous or not. 
+
+
+%Supervised and non-supervised
+%---
+\section{Literature review}
+\label{chp:related-work,sec:literature-review}
+
+Au \etal \cite{Au:2006:AnomalyDetection} propose a similarity measure which
+quantifies mutual information between image frames, and to reduce computational
+issues, image compression is required. Given two images, current scene and
+previous scene, both are compressed and measured its similarity. If it is below
+a fixed threshold, images are considered dissimilar (therefore, abnormal).
+Since the input is a video sequence, to maintain previous scenes updated,
+images are combined, compressed, and sorted (using the number of times they
+have been deemed similar to an input as the sort-key). To overcome illumination
+changes on images, they generate edge images using Canny edge detector. Thus,
+the system gains an improvement in time execution, and also the similarity
+measure is better defined rather than gray-scale images. 
+% As an aggregate
+% value, a person detector is added for anomaly images.
+%According to in surveillance videos, novelty appears rarely, as time goes
+%inputs will begin to repeat
+
+Social force describe the behavior as result of the interaction of
+individuals . Mehran \etal \cite{Mehran:2009:SocialForce} aim to capture the
+dynamics of interaction forces in crowded scenarios. In a crowd scene, the
+change of interaction forces, given by the force flow, is used to model
+the normal behavior in a Bag of Words approach. Basically, the actual force
+$F_a$ is the result of personal desire force $F_d$ plus the interaction force
+$F_{int}$. This interaction force $F_{int}$ is what they look for. Because,
+when people are densely packed, individual movement is restricted and members of
+the crowd can be considered as granular particles, they place a grid of
+particles over the scene, and optical flow allows them to estimate $F_{int}$.
+Note that, only the interaction force is not enough to detect anomalies but,
+with a pattern of forces over a period of time, this detection is achieved.
+For an input image frame, the force flow $S_f$ is calculated (which is the force
+magnitude at each pixel). Then, visual words are extracted from locations in
+$S_f$. Words with non-zero optical flow are used to construct a codebook.
+And, to discover the distribution of $L$ topics to model the normal crowd
+behavior they use Latent Dirichlet Allocation (LDA). Also, LDA serves to
+distinguish abnormal frames from normal frames. Regions of high force flow in
+abnormal frames are regions that contain anomalies.
+
+Accurate detection requires the ability to model multiple components of
+different appearance and dynamics, Mahadevan \etal
+\cite{Mahadevan:2010:AnomalyDetection} use a Mixtures of Dynamic Textures (MDT)
+which are suitable to detect anomalies in space and time. Temporal and
+spatial normalcy are modeled separately.
+%Temporal normalcy is modeled with MDT, and discriminant saliency
+%detector over MDT is adopted for spatial normalcy. 
+Frames are sampled as cells, groups of cells over time are patches. Patches
+serve as features for the MDT which is learnt in a training phase. Temporal
+abnormality map is estimated for each patch, where patches of low probability
+are set as abnormal. Spatial abnormality map is obtained by salient locations,
+which are those with some
+feature that makes them stand out from their surround. Using a feature space
+(raw pixels, gabor, wavelet, Discrete Cosine Transform, SIFT),
+locations of maximal saliency are found. Finally, abnormality map is computed
+by saliency at each patch that is the sum of both temporal and spatial saliency
+maps.
+%where distinction between
+%center and surround can be made with the highest confidence. Finally, saliency
+%abnormality map is got by computing saliency at each patch. The resulting
+%abnormality map is the sum of both, temporal and spatial saliency maps.
+
+%------------
+
+%Given an appropiate set of features, saliency provides an objective definition
+%of spatial anomaly. The saliency is formulated as a hypothesis test over two
+%classes. Salient stimuli class, and background class. Then, a feature space is
+%calculated (raw pixels, gabor, wavelet, discrete cosine transform,
+%scale-invariant feature transform). Saliency of location is dfines as the
+%extend to which the feature can discriminate between two classes. for a given
+%feature, locations of maximal saliency are those ones where the distinction
+%between center and surround can be made with highest confidence. the spatial
+%abnormality map is produced by computing the saliency at each path.
+%The overall abnormality map is the sum of temporal and spatial saliency maps.
+%major works are focused on motion ignoring information due to variations of
+%object apperance.
+
+Feng \etal \cite{Feng:2010:OnlineSOM} proposed an alternative to use online
+SOM (Self Organized Maps) to deal with clustering in an adaptively manner.
+Because segment persons in crowded scenes is a difficult task, motion
+patterns are taken as features. Video sequences are treated as sets of clips
+where each clip describes motion patterns which are obtained using optical flow.
+Then, a gaussian distribution is estimated for the current clip, with maximum
+likelihood for parameter estimation. SOM clusters motion patterns based on the
+parameters of the gaussian distribution. As a result, SOM reveals statistical
+features which are able to distinguish between normal and abnormal behavior.
+
+Starting with the statement that abnormalities must be modeled as a
+mixture of normal and abnormal behaviors, Haines and Xiang
+\cite{Haines:2011:dDHP} propose the use of Dirichlet Processes (DP) through a
+delta-Dual Hierarchical DP which is a probabilistic topic model \footnote{The
+typical topic model is defined over a corpora of documents where each document
+contains many words, then the model discovers new topics which share along
+documents but with different ratio, for video sequences, documents are clips,
+words are discrete video features.} for jointly learning using weakly supervised
+training samples. To understand their methodology, it is important to know
+the notation used in their graphical model. Basically, the model uses many
+documents $d \in D$, each one containing words $n \in N_d$. Words are assigned
+either to a regular topic($R$) or an abnormal topic($A$). Every document $d$ has
+a distribution $G_d^D$ over these topics, and also share its topics to other
+documents. The prior distribution over topics is denoted by $S_D$.
+Thus, given a set of regular $H^R$ and abnormal $H^A$ topics, regular topics are
+clustered. Each cluster $c \in C$ considers (1) a DP $G_0 = \lbrace H_R, \gamma
+\rbrace$, and (2) a multinomial distribution $M_C$ over a set of abnormal topics
+in combination with a single entry for all words in $R$. Then, a DP $Q$ with
+concentration $\gamma$ is learnt from clusters $C$, which posteriorly is
+combined with $H^A$ and a Bernoulli distribution $F_d$ to form a prior
+distribution $S_d$ that mixes abnormal and regular distributions into a single
+one. Finally, a document containing $|N_d|$ words, words are assigned to a topic
+drawn from $G^D$, where $G^D = \lbrace S_d, \alpha \rbrace$ is another DP. Once
+the model is learnt, they detect abnormalies by classifying new documents in
+terms of their behavior, that in fact can be done in an online manner.
+
+Since most of surveillance videos are recorded from stationary cameras,
+background subtraction is suitable to provide a good foreground estimation.
+Antić and Ommer \cite{Antic:2011:VideoParsing} proposed the idea to use
+hypotheses which explain normal behavior in the foreground, such a way that
+hypotheses which are needed but have not been seen before (in training set), are
+likely to be anomalies. After background subtraction, a set of hypotheses $L$ is
+obtained and, to reduce the search space, a linear SVM (considering
+spatio-temporal derivatives) holds a subset $L'$ of $L$ where each object
+hypothesis in $L'$ has: location, scale, descriptor used in the SVM, and
+velocity (calculated from the optical flow). With these features, a
+probabilistic model is learnt. The main idea is to obtain the minimum subset of
+hypotheses to explain all foreground at each frame in the training set. Thus,
+for a new input, the set of hypotheses $\hat{L}$ are formed and an abnormal
+events is found if hypothesis $h_i$ is necessary to explain foreground activity
+but has a low probability and no matching training sample was be found. Same
+way, pixel $p_j$ is on an anomaly if it is in foreground and at least
+one abnormal hypothesis that covers $p_j$ belongs to $\hat{L}$
+
+% 
+% , proposed an abnormality
+% detection based on videos from a stationary camera where powerful background
+% subtraction algorithms can provide foreground and background segregation. Then,
+% they need to find a set of normal hypothesis to explain the foreground pixels.
+% All hypotheses which are needed to explain the foreground but which themselves
+% cannot be explained by an instance from the set of normal training samples are
+% abnormal objects. But, inferring from a scene a set of hypotheses does not
+% solve the problem. Hence, they propose two-stage approach. The first stage
+% obtains a list of hypotheses $L$ which are low likely to be part of the
+% background. Next, they want to find a minimum length subset $L' \subseteq L$
+% which suffices to explain all foreground activity. They use a training set
+% to obtain a set of hypotheses to explain normal behavior. After background
+% subtraction, object hypotheses are formed ($L$) and classified (to get $L'$)
+% using a linear kernel SVM with a vector of spatio-temporal derivatives as
+% descriptors. Given $L'$, each hypothesis has location, scale, descriptor used
+% in the SVM, and velocity (obtained using optical flow). Using these features,
+% they build a probabilistic model whose main idea is. Suppose a pixel $p_j$ at
+% frame $f$ is marked as abnormal (by training set we have the annotations) and
+% asserted by hypothesis $h_i$, if no other hypothesis explain the presence of the
+% foreground at pixel $p_j$, then $h_i$ will increase its probability. In order to
+% obtain the subset of hypotheses, they just maximize the posterior probability
+% of this fact. Once we have a set of hypotheses obtained from the training set,
+% given a new input we form a set of hypotheses and to infer abnormal events, if
+% $ith$ hypothesis is necessary to explain foreground activity but if has a low
+% probability and not matching training sample can be found. While this is for a
+% frame-level detection, to detect at pixel-level, pixel $p_j$ is part of an
+% anomaly if it is in foreground and exists at least one abnormal hypothesis
+% that covers pixel $p_j$.
+
+Reddy \etal \cite{Reddy:2011:AnomalyCrowded} proposed a low-level approach
+using motion, size, and texture as features. In addition, background
+subtraction is performed to retain objects. Motion is estimated using optical
+flow. Size is obtained by a weighted combination of foreground occupancy of one
+cell (group of pixels) and its neighbors using a gaussian mask. Since including
+size may increase false alarm rate, due to people walking each other, texture
+feature seeks to solve this issue. 2D Gavor Wavelets at four orientations
+describe texture. Because mutual influence exhibited by features, independent
+analysis is adopted. A gaussian kernel density estimation was computes the
+probability of motion and size (only at discrete points). Then, probability mass
+function is computed using training data which adapts its behavior over time.
+While a codebook models feature distribution. To classify as normal or anomal,
+either two rules need to be satisfied. The first rule is related to
+motion, whilst the second puts emphasis on size and texture. As a final step, a
+post-processing analysis is carried on neighboring cells at space-time axes
+(this step can rename cells considered before as normal or anomaly).
+
+Wiliem \etal \cite{Wiliem:2012:SuspiciousBehavior} applies the concept
+of contextual information and context space models. Contextual information is
+referred to be any information that influences in the understanding of a
+particular dependent variable. Thereby, is classified into dependent and
+independent variables. Independent variables are information whose meaning has
+not been influenced by other information, and dependent variables are those ones
+influenced by independent variables. A context space model is a set $\Theta =
+\lbrace C_1, C_2, \dots, C_m \rbrace$, where $C_i=\lbrace (B_1, f_1), (B_2,
+f_2),$ $\dots, (B_n, f_n) \rbrace $ represents a context. For a particular
+$(B_j, f_j) \in C_i$, $B_j$ expresses the behavior class in context
+$C_i$, and $f_j$ its frequency. Also, the concept of \textit{commonality index}
+defines how common a behavior class is, compared with the most occurred behavior
+class. Three levels of commonality are declared: significantly common, common,
+and uncommon. Due to high data streaming, \textit{clusteram algorithm} was
+modified since it has the property to deal with evolving data streams. That
+algorithm is able to capture the data evolution over time and store it into
+snapshots of micro clusters. Finally, an inference algorithm is used to decide
+whether an observer instance of behavior is suspicious or not. First,
+an observed behavior $B_{obs}$ is classified to the closest behavior class
+$B_{cur}$ in the current context. Then, the behavior class is updated. Next,
+commonality index is calculated in order to determine the commonality level, and
+one more time, the closest behavior class is found, but this works with the
+learnt context $B_{prev}$. An inferential statistical test, \textit{z-test} or
+\textit{t-test} (as suggested by authors), determines whether the null
+hypothesis is satisfied, where $$H_0 : B_{prev} \text{ and } B_{cur} \text{ are
+statistically different}; ~ H_1: \text{otherwise}$$Based on the result of this
+test, six conditions are considered to define if $B_{obs}$ is normal or
+suspicious. For instance, one condition is declared as follows: if $H_1$ fits,
+the system compares the commonality level between $B_{cur}$, and $B_{prev}$. If
+both are common or significanlty equal, $B$ is asserted as normal behavior.
+
+Saligrama and Chen \cite{Saligrama:2012:AnomalyDetection} focus on local
+spatio-temporal anomalies. Anomalies are declared by ranking composite scores
+for video segments. They associate a graph $G=(V=S\times T, E)$, where $S$
+represents spatial locations and $T$ temporal locations for short segments of
+video. These nodes, which actually abstract feature descriptors, are connected
+if they are neighbors in space or time giving a grid-like graph structure in
+$3D$. For each $x \in V$, $x$ is described as $x=<persistence, ~direction,
+~motion~ magnitude>$, where persistence is referred to the activity detected and
+expressed by the percentage of foreground pixels in space-time block. Direction,
+through Schunkch's optical flow method, describes motion in 8 directions plus
+an extra idle, and the average of each direction will be the magnitude value. 
+A decision rule decides normalcy or abnormalcy using score functions uniformly
+distributed approximated by local K-NN (Nearest Neighbors).
+
+Biswas and Babu \cite{Biswas:2013:H264} face the abnormal detection problem in
+videos but under time computational constrains. Most approaches work with
+fully decomposed videos having pixel level information, decomposing is trivial
+for short videos, but in $24\times 7$ video CCTV, that is a big task indeed.
+To cover this drawback, over H264/AVC (a standard video compression format)
+videos motion vectors are calculated as an approximation of optical flow. Once
+motion magnitudes are obtained, a pyramidal approach deals with resolution
+issues, such levels are got by interpolation. At the original level,
+spatio-temporal median overcomes the noise effect. Then, histogram of motion
+magnitudes are formed and corrected by kernel gaussian estimators to joint
+information at different levels. Usual behavior is modeled by a gaussian
+mixture model taking in mind multimodal motion scenarios. The detection
+process starts at the coarsest level, and moves to finer levels only if
+anomalies are likely to be found.
+
+A event can be abnormal at some scale, but normal in some other scale.
+Therefore, anomalies are dependent on the scale at which normalcy is
+defined. Javan Roshtkhari and Levine \cite{JavanRoshtkhari:2013:OnlineRealtime}
+define the event detection problem as a problem where new observed data must be
+reconstructed using historical information. Their method relies on three steps.
+First, dense sampling at different scales is carried on to construct
+spatio-temporal volumes (each volume $V_i$ is characterized by the absolute
+value of temporal derivatives of all pixels \footnote{This descriptor is
+asserted to be invariant to roughly static background.} belonging to $V_i$).
+Since dense sampling is highly informative but also redundant, those volumes are
+grouped in a codebook to reduce the search space. The codebook is continuously
+pruned to eliminate infrequent or similar codewords. Second, to be able to
+reconstruct new observations, compositional relationships are examined with a
+mixture of gaussian a large contextual region. Each volume $V_i$ examine
+information in a spatio-temporal context of $50 \times 50 \times 50$, volumes
+related inner this region form an ensemble. Third, the inference mechanism to
+determine if a new video is or not abnormal. Given a video, it is densely
+sampled at all scales, assigned to codewords using the codebook, and some
+ensembles of spatio-temporal volumes are constructed. To infer, for each volume
+in the set of ensembles its probability of being normal is calculated. Finally,
+the decision is done by a threshold with a fixed parameter.
+
+Also, Li \etal \cite{Li:2014:AnomalyDetection} noted the fact to detect
+anomalies at multiple scales improving the proposed approach in Ref.~
+\cite{Mahadevan:2010:AnomalyDetection} by learning hierarchically MDT at
+multiple scales. Local measures of spatio-temporal abnormalities are integrated
+into a global anomaly map using a Conditional Random Field (CRF). But CRF cannot
+adapt itself dynamically over time, hence an online CRF is taken with
+spatio-temporal anomaly scores at each spatial scale as vector features. By this
+way, the inference to decide which events are anomal or not is done by the CRF.
+
+
+
+\subsection{Comparative table}
+
+\begin{table}[h]
+\begin{tabular}{cccc|c|c|c|c|}
+\cline{5-8}
+                                &                           &                   
+           &         & \multicolumn{4}{c|}{Data Set}                            
+                                                                                
+    \\ \hline
+\multicolumn{1}{|c|}{Reference} & \multicolumn{1}{c|}{Year} &
+\multicolumn{1}{c|}{Approach} & Results & UCSD-Ped1 & UCSD-Ped2 &
+\begin{tabular}[c]{@{}c@{}}Abnormal\\ Behavior\end{tabular} &
+\begin{tabular}[c]{@{}c@{}}Crowd\\ Activity\end{tabular} \\ \hline
+\multicolumn{1}{|c|}{}          & \multicolumn{1}{c|}{}     &
+\multicolumn{1}{c|}{}         &         &           &           &               
+                                             &                                  
+                       \\ \hline
+\multicolumn{1}{|c|}{}          & \multicolumn{1}{c|}{}     &
+\multicolumn{1}{c|}{}         &         &           &           &               
+                                             &                                  
+                       \\ \hline
+\multicolumn{8}{|l|}{}                                                          
+                                                                                
+                                                                                
+    \\ \hline
+\end{tabular}
+\end{table}
